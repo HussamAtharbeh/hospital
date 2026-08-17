@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-function PatientForm() {
-  const [patients, setPatients] = useState([]); 
+function PatientForm({addPatient}) {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [department, setDepartment] = useState('');
@@ -14,9 +13,11 @@ function PatientForm() {
       age,
       department,
     };
-
-    setPatients([...patients, newPatient]);
+addPatient(newPatient);
     console.log({ name, age, department });
+    setName('');
+    setAge('');
+    setDepartment('');
   };
 
   return (
@@ -50,13 +51,7 @@ function PatientForm() {
     
     <h2>Patients</h2>
     
-<ul style={{ marginTop: "20px", listStyle: "none", padding: 0 }}>
-  {patients.map((patient, index) => (
-    <li key={index}>
-      <strong>{patient.name}</strong> --- Age: {patient.age},--- Department: {patient.department}
-    </li>
-  ))}
-</ul>
+
 </>
   );
 }

@@ -1,13 +1,22 @@
 
 import PatientForm from "./components/PatientForm";
+import PatientList from "./components/PatientList";
+import { useState } from 'react';
 
 function App() {
   
+    const [patients, setPatients] = useState([]); 
+    
+    const addPatient = (newPatient) => {
+      setPatients([...patients, newPatient]);
+    }
+
   return (
     <>
       <h1>hospital manager app</h1>
 
-      <PatientForm/>
+      <PatientForm addPatient={addPatient}/>
+      <PatientList patients={patients} />
     </>
   )
 }
