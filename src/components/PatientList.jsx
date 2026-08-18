@@ -1,3 +1,5 @@
+import PatientItem from "./PatientItem"
+
 function PatientList({ patients }) {
   
   return (
@@ -5,7 +7,8 @@ function PatientList({ patients }) {
       <ul style={{ marginTop: "20px", listStyle: "none", padding: 0 }}>
   {patients.map((patient, index) => (
     <li key={index}>
-      <strong>{patient.name}</strong> --- Age: {patient.age},--- Department: {patient.department}
+      {/* <strong>{patient.name}</strong> --- Age: {patient.age},--- Department: {patient.department} */}
+      <PatientItem patients={patient} index={index} />
     </li>
   ))}
 </ul>

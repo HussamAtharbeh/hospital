@@ -1,6 +1,8 @@
 
 import PatientForm from "./components/PatientForm";
 import PatientList from "./components/PatientList";
+import PatientItem from "./components/PatientItem";
+
 import { useState } from 'react';
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
 
       <PatientForm addPatient={addPatient}/>
       <PatientList patients={patients} />
+
     </>
   )
 }
